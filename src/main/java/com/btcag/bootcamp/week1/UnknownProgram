@@ -1,0 +1,30 @@
+Value1 = 5
+Value2 = 5
+Erster Durchlauf value1 = 5
+Tmp = value2 = 5
+Erster Durchlauf tmp = 5
+Result = 1, 2, 3, 4, 5
+Zweiter Durchlauf value1 = 4
+Tmp = value 2 = 5
+Zweiter Durchlauf tmp = 5
+Result = 6, 7, 8, 9, 10
+Dritter Durchlauf value1 = 3
+Tmp = 5
+Dritter Durchlauf tmp = 5
+Result = 11, 12, 13, 14, 15
+Vierter Durchlauf value1 = 2
+Tmp = 5
+Vierter Durchlauf tmp = 5
+Result = 16, 17, 18, 19, 20
+Fünfter Durchlauf value1 = 1
+Tmp = 5
+Fünfter Durchlauf tmp = 5
+Result = 21, 22, 23, 24, 25
+
+Das Programm multipliziert zwei Nutzereingaben.
+Die erste Schleife wird solange durchgeführt, bis die erste Nutzereingabe 0 erreicht. Die verschachtelte Schleife wird solange durchgeführt, bis
+die in der ersten Schleife definierte Variable 0 erreicht. In dieser Schleife wird result in jedem Durchlauf um 1 addiert.
+Nach Durchlauf der zweiten Schleife geht das Programm zurück in die erste Schleife und setzt den Wert für tmp wieder auf die Nutzereingabe.
+Daraufhin erfolgt ein weiterer Durchlauf der zweiten Schleife bis tmp 0 erreicht.
+
+Es funktioniert, weil VAR-- erst nach der Codezeile ausgeführt wird.
