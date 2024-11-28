@@ -11,10 +11,10 @@ public class Pi {
 
         System.out.println("Wie viele Durchläufe sollen erfolgen?");
         int maxRuns = input.nextInt();
-        int runs = 0;
+        int runs = 1;
 
-        while (runs <= maxRuns) {
-            if (runs % 2 == 0) {
+        while (runs < maxRuns) {
+            if (runs % 2 != 0) {
                 ergebnis -= ((double) 1 / i);
             } else {
                 ergebnis += ((double) 1 / i);
@@ -22,7 +22,7 @@ public class Pi {
             runs++;
             i = i + 2;
         }
-
+        runs -= 1;
         pi = 4 * ergebnis;
         System.out.println("Nach " + runs + " Durchläufen wurde Pi auf den Wert " + pi + " berechnet.");
     }

@@ -12,6 +12,6 @@ public class AlwaysPositive {
         if (zahl < 0) {
             zahl *= -1;
         }
-        System.out.println(zahl);
+        System.out.println(zahl + ":)");
     }
 }
