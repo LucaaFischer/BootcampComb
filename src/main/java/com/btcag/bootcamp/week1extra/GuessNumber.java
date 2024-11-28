@@ -17,8 +17,6 @@ public class GuessNumber {
         long maxNumb = bitShift - 1;
         long randNumber = random.nextLong(0, maxNumb);
 
-        // System.out.println(bitShift + " " + randNumber +  " " + maxNumb);
-
         while (guess != randNumber) {
             System.out.println(i + ". Versuch: Bitte eine Zahl im Bereich von 0 und " + maxNumb + " angeben: ");
             guess = input.nextLong();
