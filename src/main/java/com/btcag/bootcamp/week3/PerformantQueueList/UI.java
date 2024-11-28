@@ -6,9 +6,11 @@ import java.util.Scanner;
 public class UI {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        PQueueList queuelist = new PQueueList();
+
         int userInput;
         int toDo = 0;
-        PQueueList queuelist = new PQueueList();
+
         while (toDo != 6) {
             System.out.println("Was möchtest du machen?\n" +
                     " (1) Erstes Element löschen,\n" +
@@ -22,7 +24,6 @@ public class UI {
 
             if (toDo == 1) {
                 System.out.println("Das Element " + queuelist.popFirst() + " wurde gelöscht");
-
 
             } else if (toDo == 2) {
                 System.out.println("Das Element " + queuelist.popLast() + " wurde gelöscht");
@@ -42,6 +43,7 @@ public class UI {
                 userInput = input.nextInt();
                 System.out.println("Das " + userInput + " Element der Queue ist: " + queuelist.getObject(userInput));
             }
+
             System.out.println("Queue: " + Arrays.toString(queuelist.printQueue()));
         }
     }
