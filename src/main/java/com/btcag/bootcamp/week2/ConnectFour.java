@@ -117,8 +117,8 @@ public class ConnectFour {
         char[] coins = {'O', 'X'};
         for (char coin : coins) {
             //--------------------------------------------------------------------Horizontal------------------------------------------------------------------------------------------
-            for (int i = 0; i <= 5; i++) {
-                for (int j = 1; j <= 4; j++) {
+            for (int i = 0; i < 4; i++) {
+                for (int j = 1; j < 4; j++) {
                     if (board[i][j] == coin && board[i][j + 1] == coin && board[i][j + 2] == coin && board[i][j + 3] == coin) {
                         return true;
                     }

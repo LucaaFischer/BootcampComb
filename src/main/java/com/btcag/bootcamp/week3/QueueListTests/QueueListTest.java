@@ -15,7 +15,7 @@ public class QueueListTest {
          // Queuelist
         list.pushFirst(1);
         list.pushFirst(2);
-        list.pushLast(3);
+        list.pushFirst(3);
 
         // Performant Queuelist
         pList.pushFirst(1);
@@ -23,15 +23,15 @@ public class QueueListTest {
         pList.pushFirst(3);
 
         // Queuelist
+        assertEquals(3, list.popFirst());
         assertEquals(2, list.popFirst());
         assertEquals(1, list.popFirst());
-        assertEquals(3, list.popFirst());
         assertEquals(-1, list.popFirst());
 
         // Performant Queuelist
+        assertEquals(3, pList.popFirst());
         assertEquals(2, pList.popFirst());
         assertEquals(1, pList.popFirst());
-        assertEquals(3, pList.popFirst());
         assertEquals(-1, pList.popFirst());
     }
 

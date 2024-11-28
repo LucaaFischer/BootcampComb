@@ -1,17 +1,14 @@
 package com.btcag.bootcamp.week3.QueueList;
 
 public class QueueList implements IMethods{
-
     int list[] = new int[5];
-    String name;
-
 
     @Override
     public int popFirst() {
         int temp = -1;//ersten Wert zwischenspeichern
         if (list[0] != 0) {
             temp = list[0];
-            for (int i = 0; i < list.length - 1; i++) {//alle Werte um einen Platz nach vorne schieben
+            for (int i = 0; i < list.length - 1; i++) {     //alle Werte um einen Platz nach vorne schieben
                 list[i] = list[i + 1];
             }
         }

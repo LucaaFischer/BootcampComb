@@ -44,7 +44,7 @@ public class UI {
                 System.out.println("Das " + userInput + " Element der Queue ist: " + queuelist.getObject(userInput));
             }
 
-            System.out.println("Queue: " + Arrays.toString(queuelist.printQueue()));
+            queuelist.printQueue();
         }
     }
 }

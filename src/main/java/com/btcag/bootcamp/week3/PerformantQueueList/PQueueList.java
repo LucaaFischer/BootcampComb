@@ -1,78 +1,76 @@
 package com.btcag.bootcamp.week3.PerformantQueueList;
 
 public class PQueueList implements IMethods {
-    public int[] queue = new int[5];
-    int countFrontPops = 0;
-    int countBackPops = 1;
+    public int[] queue = {-1, -1, -1, -1, -1};
+    int countFront = 0;
+    int countBack = 1;
+    private int size = 0;
 
     public int firstIndex() {
-        while (countFrontPops > queue.length) {
-            countFrontPops -= queue.length;
-        }
-
-        while (countFrontPops < 0) {
-            countFrontPops += queue.length;
-        }
-        return countFrontPops;
+        return (countFront + queue.length) % queue.length;
     }
 
     public int lastIndex() {
-        while (countBackPops > queue.length) {
-            countBackPops -= queue.length;
-        }
-        while (countBackPops < 0) {
-            countBackPops += queue.length;
-        }
-        return countBackPops;
+        return (countBack + queue.length) % queue.length;
     }
 
     public boolean queueFull() {
-        return firstIndex() == lastIndex();
+        return size == queue.length;
     }
 
-    public int[] doubleArray(int[] newQueue) {
-        int[] temp = new int[newQueue.length * 2];
-        int i = 0;
+    public boolean queueEmpty() {
+        return size == 0;
+    }
 
-        for (int j = firstIndex(); j < queue.length; j++) {
-            temp[i++] = queue[j];
-        }
 
-        for (int j = 0; j < lastIndex(); j++) {
-            temp[i++] = queue[j];
+    public int[] doubleArray(int[] queue) {
+        int[] newQueue = new int[queue.length * 2];
+
+        for (int i = 0; i < newQueue.length; i++) {
+            if (i < queue.length) {          // kopiert die übergebenen Werte in die neue Queue
+                newQueue[i] = queue[i];
+            } else {
+                newQueue[i] = -1;       // Legt Standardwert für alle neuen Indizes fest
+            }
         }
-        return temp;
+        return newQueue;
     }
 
     @Override
     public int popFirst() {
-        int temp = -1;
-        if (queue[firstIndex()] != 0) {
-            temp = queue[firstIndex()];
-            queue[firstIndex()] = 0;
-            countFrontPops++;
+        if (queueEmpty()) {
+            System.out.println("Queue is empty");
         }
+        int temp = queue[firstIndex()];
+        queue[firstIndex()] = -1;
+        countFront = (countFront + 1) % queue.length;
+        size--;
         return temp;
     }
 
     @Override
     public int popLast() {
-        int temp = -1;
-        if (queue[lastIndex()] != 0) {
-            temp = queue[lastIndex()];
-            queue[lastIndex()] = 0;
-            countBackPops--;
+        if (queueEmpty()) {
+            System.out.println("Queue is empty");
         }
+        countBack = (countBack - 1 + queue.length) % queue.length;
+        int temp = queue[lastIndex()];
+        queue[lastIndex()] = -1;
+        size--;
         return temp;
     }
+
 
     @Override
     public int pushLast(int i) {
         if (queueFull()) {
             queue = doubleArray(queue);
+            countFront = 0;
+            countBack = size;
         }
         queue[lastIndex()] = i;
-        countBackPops++;
+        countBack = (countBack + 1) % queue.length;
+        size++;
         return i;
     }
 
@@ -80,20 +78,28 @@ public class PQueueList implements IMethods {
     public int pushFirst(int i) {
         if (queueFull()) {
             queue = doubleArray(queue);
+            countFront = 0;
+            countBack = size;
         }
-
+        countFront = (countFront - 1 + queue.length) % queue.length;
         queue[firstIndex()] = i;
-        countFrontPops--;
+        size++;
         return i;
     }
 
+
     @Override
     public int getObject(int i) {
-        return queue[i];
+        return queue[i-1];
     }
 
-    public int[] printQueue() {
-        return queue;
+    public void printQueue() {
+        for (int i = 0; i < queue.length; i++) {
+            if (queue[i] != -1) {
+                System.out.print(queue[i] + ", ");
+            }
+        }
+        System.out.println();
     }
 
     public PQueueList() {

@@ -6,7 +6,6 @@ public class Subnetting {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int i = 0;
-        long broadcast = 0;
 
         System.out.println("Bitte gebe das erste Oktett der IP-Adresse an:");
         long oktett1 = input.nextLong();
@@ -32,6 +31,7 @@ public class Subnetting {
             }
             System.out.print(ipAddress[i]);
             i++;
+
 
             long subBin = subnetzmaske - (oktett4 - 1) ^ oktett4;
             System.out.println();
