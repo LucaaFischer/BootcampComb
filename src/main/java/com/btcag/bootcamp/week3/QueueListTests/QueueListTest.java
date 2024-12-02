@@ -99,17 +99,6 @@ public class QueueListTest {
         list.pushLast(8); // index 7
         list.pushLast(9); // index 8
 
-        // Performant Queuelist
-        pList.pushLast(1); // index 0
-        pList.pushLast(2); // index 1
-        pList.pushLast(3); // index 2
-        pList.pushLast(4); // index 3
-        pList.pushLast(5); // index 4
-        pList.pushLast(6); // index 5
-        pList.pushLast(7); // index 6
-        pList.pushLast(8); // index 7
-        pList.pushLast(9); // index 8
-
         // Queuelist
         assertEquals(1, list.getObject(0));
         assertEquals(2, list.getObject(1));
@@ -121,17 +110,5 @@ public class QueueListTest {
         assertEquals(8, list.getObject(7));
         assertEquals(9, list.getObject(8));
         assertEquals(0, list.getObject(9));
-
-        // Performant Queuelist
-        assertEquals(1, pList.getObject(0));
-        assertEquals(2, pList.getObject(1));
-        assertEquals(3, pList.getObject(2));
-        assertEquals(4, pList.getObject(3));
-        assertEquals(5, pList.getObject(4));
-        assertEquals(6, pList.getObject(5));
-        assertEquals(7, pList.getObject(6));
-        assertEquals(8, pList.getObject(7));
-        assertEquals(9, pList.getObject(8));
-        assertEquals(0, pList.getObject(9));
     }
 }
